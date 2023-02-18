@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -26,7 +27,11 @@ namespace ServicioDatosRest
     {
         [OperationContract]
         [WebGet(UriTemplate = "/getAll",ResponseFormat = WebMessageFormat.Json,BodyStyle = WebMessageBodyStyle.Wrapped)]
-        List<Cliente> GetAll();
+        List<Cliente> GetAllCache();
+
+        //[OperationContract]
+        //[WebGet(UriTemplate = "/Cache", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        //IEnumerable GetAllCache();
 
         [OperationContract]
         [WebGet(UriTemplate = "/get/{idCliente}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]

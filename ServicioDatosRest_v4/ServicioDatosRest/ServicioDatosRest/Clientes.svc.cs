@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -14,7 +16,7 @@ namespace ServicioDatosRest
     public class Clientes : IClientes
     {
         private readonly List<Cliente> repo;
-
+        private const string CacheKey = "Clientes";
         public Clientes()
         {
             repo = new List<Cliente>();
@@ -66,6 +68,23 @@ namespace ServicioDatosRest
         public List<Cliente> GetAll()
         {
             return repo;
+        }
+
+        public List<Cliente> GetAllCache()
+        {
+            ObjectCache cache = MemoryCache.Default;
+
+            if (cache.Contains(CacheKey))
+                return (List<Cliente>)cache.Get(CacheKey);
+            else
+            {
+                IEnumerable availablePizzas = repo;
+                // Store data in the cache
+                CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+                cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddHours(1.0);
+                cache.Add(CacheKey, repo, cacheItemPolicy);
+                return repo;
+            }
         }
 
         public Cliente Update(Cliente cliente)
