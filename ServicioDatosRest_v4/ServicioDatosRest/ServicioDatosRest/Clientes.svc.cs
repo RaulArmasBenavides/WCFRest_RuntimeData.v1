@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ServicioDatosRest.Entity;
+using ServicioDatosRest.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,15 +17,24 @@ namespace ServicioDatosRest
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Clientes.svc o Clientes.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class Clientes : IClientes
     {
-        private readonly List<Cliente> repo;
+        private List<Cliente> repo;
         private const string CacheKey = "Clientes";
         public Clientes()
         {
-            repo = new List<Cliente>();
-            repo.Add(new Cliente() { Id = 1, Mail = "mail1@google.com", Nombre = "Cliente1", Telefono = "1111" });
-            repo.Add(new Cliente() { Id = 2, Mail = "mail2@google.com", Nombre = "Cliente2", Telefono = "2222" });
-            repo.Add(new Cliente() { Id = 3, Mail = "mail3@google.com", Nombre = "Cliente3", Telefono = "3333" });
-            repo.Add(new Cliente() { Id = 4, Mail = "mail4@google.com", Nombre = "Cliente4", Telefono = "4444" });
+            repo = new List<Cliente>
+            {
+                new Cliente() { Id = 1, Mail = "mail1@google.com", Nombre = "Cliente1", Telefono = "1111" },
+                new Cliente() { Id = 2, Mail = "mail2@google.com", Nombre = "Cliente2", Telefono = "2222" },
+                new Cliente() { Id = 3, Mail = "mail3@google.com", Nombre = "Cliente3", Telefono = "3333" },
+                new Cliente() { Id = 4, Mail = "mail4@google.com", Nombre = "Cliente4", Telefono = "4444" }
+            };
+
+        }
+
+
+        public void CargaInicial()
+        {
+           
         }
 
         public Cliente Create(Cliente cliente)

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicioDatosRest", "ServicioDatosRest\ServicioDatosRest.csproj", "{2286D165-668B-448C-8804-22EDEEECBFED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicioDatosRest.Entity", "ServicioDatosRest.Entity\ServicioDatosRest.Entity.csproj", "{81E5E935-E0F5-4973-8EFC-E9870137700E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicioDatosRest.Interfaces", "ServicioDatosRest.Interfaces\ServicioDatosRest.Interfaces.csproj", "{444890E3-7273-4BDC-BD4A-4C562D644C47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{2286D165-668B-448C-8804-22EDEEECBFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2286D165-668B-448C-8804-22EDEEECBFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2286D165-668B-448C-8804-22EDEEECBFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E5E935-E0F5-4973-8EFC-E9870137700E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E5E935-E0F5-4973-8EFC-E9870137700E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E5E935-E0F5-4973-8EFC-E9870137700E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E5E935-E0F5-4973-8EFC-E9870137700E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{444890E3-7273-4BDC-BD4A-4C562D644C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{444890E3-7273-4BDC-BD4A-4C562D644C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{444890E3-7273-4BDC-BD4A-4C562D644C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{444890E3-7273-4BDC-BD4A-4C562D644C47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61B2C452-09B2-46C6-8AD0-4511D3FE1725}
 	EndGlobalSection
 EndGlobal

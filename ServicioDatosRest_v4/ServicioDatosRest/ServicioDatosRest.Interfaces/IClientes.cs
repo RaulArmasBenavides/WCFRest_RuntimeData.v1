@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServicioDatosRest.Entity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,32 +7,20 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Script.Services;
 
-namespace ServicioDatosRest
+namespace ServicioDatosRest.Interfaces
 {
-    [DataContract]
-    public class Cliente
-    {
-        [DataMember]
-        public int Id { get; set; }
-        [DataMember]
-        public string Nombre { get; set; }
-        [DataMember]
-        public string Telefono { get; set; }
-        [DataMember]
-        public string Mail { get; set; }
-    }
-
     [ServiceContract]
     public interface IClientes
     {
         [OperationContract]
-        [WebGet(UriTemplate = "/getAll",ResponseFormat = WebMessageFormat.Json,BodyStyle = WebMessageBodyStyle.Wrapped)]
+        [WebGet(UriTemplate = "/getAllCache",ResponseFormat = WebMessageFormat.Json,BodyStyle = WebMessageBodyStyle.Wrapped)]
         List<Cliente> GetAllCache();
 
-        //[OperationContract]
-        //[WebGet(UriTemplate = "/Cache", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
-        //IEnumerable GetAllCache();
+        [OperationContract]
+        [WebGet(UriTemplate = "/getAll", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        List<Cliente> GetAll();
 
         [OperationContract]
         [WebGet(UriTemplate = "/get/{idCliente}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
@@ -48,5 +37,10 @@ namespace ServicioDatosRest
         [OperationContract]
         [WebInvoke(UriTemplate = "/delete", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, Method = "POST")]
         void Delete(int idCliente);
+
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/CargaInicial", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        void CargaInicial();
     }
 }
